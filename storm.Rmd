@@ -3,18 +3,39 @@ output:
   html_document:
     theme: journal
 ---
+I Need a Title
+==============
+Jonathan Owen  
+April 26, 2015  
+
+Synopsis  
+--------
+No more than **10 sentences**.   
+  
+Data Processing
+---------------
+
 ```{r}
 library(data.table)
 ```  
 
-```{r, cache = TRUE}
-
-if (!file.exists("RepData_Storm/repdata-data-StormData.csv.bz2")) {
-  file_url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2"
-  download.file(file_url, "RepData_Storm/repdata-data-StormData.csv.bz2")
+```{r}
+if (!file.exists("repdata-data-StormData.csv.bz2")) {
+  file_url <- 
+    "http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2"
+  download.file(file_url, "repdata-data-StormData.csv.bz2")
 }
+```  
 
-bz_storm <- bzfile("RepData_Storm/repdata-data-StormData.csv.bz2", open = "r") 
-storm <- read.csv("RepData_Storm/repdata-data-StormData.csv.bz2", stringsAsFactors = FALSE)
+```{r, cache = TRUE}
+storm <- read.csv(bzfile("repdata-data-StormData.csv.bz2"), 
+                  stringsAsFactors = FALSE)
+```  
+
+```{r}
 summary(storm)
-```
+```  
+Results
+-------
+Must contain **at least 1** but **no more than 3** plots. A plot may be a panel 
+plot.

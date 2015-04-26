@@ -61,17 +61,24 @@ img {
 
 
 
+<div id="i-need-a-title" class="section level1">
+<h1>I Need a Title</h1>
+<p>Jonathan Owen<br />April 26, 2015</p>
+<div id="synopsis" class="section level2">
+<h2>Synopsis</h2>
+<p>No more than <strong>10 sentences</strong>.</p>
+</div>
+<div id="data-processing" class="section level2">
+<h2>Data Processing</h2>
 <pre class="r"><code>library(data.table)</code></pre>
-<pre class="r"><code>setwd(&quot;C:/Users/jonat_000&quot;)
-
-if (!file.exists(&quot;RepData_Storm/repdata-data-StormData.csv.bz2&quot;)) {
-  file_url &lt;- &quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2&quot;
-  download.file(file_url, &quot;RepData_Storm/repdata-data-StormData.csv.bz2&quot;)
-}
-
-bz_storm &lt;- bzfile(&quot;RepData_Storm/repdata-data-StormData.csv.bz2&quot;, open = &quot;r&quot;) 
-storm &lt;- read.csv(&quot;RepData_Storm/repdata-data-StormData.csv.bz2&quot;, stringsAsFactors = FALSE)
-summary(storm)</code></pre>
+<pre class="r"><code>if (!file.exists(&quot;repdata-data-StormData.csv.bz2&quot;)) {
+  file_url &lt;- 
+    &quot;http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2&quot;
+  download.file(file_url, &quot;repdata-data-StormData.csv.bz2&quot;)
+}</code></pre>
+<pre class="r"><code>storm &lt;- read.csv(bzfile(&quot;repdata-data-StormData.csv.bz2&quot;), 
+                  stringsAsFactors = FALSE)</code></pre>
+<pre class="r"><code>summary(storm)</code></pre>
 <pre><code>##     STATE__       BGN_DATE           BGN_TIME          TIME_ZONE        
 ##  Min.   : 1.0   Length:902297      Length:902297      Length:902297     
 ##  1st Qu.:19.0   Class :character   Class :character   Class :character  
@@ -160,6 +167,12 @@ summary(storm)</code></pre>
 ##  3rd Qu.:676723  
 ##  Max.   :902297  
 ## </code></pre>
+</div>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<p>Must contain <strong>at least 1</strong> but <strong>no more than 3</strong> plots. A plot may be a panel plot.</p>
+</div>
+</div>
 
 
 </div>
